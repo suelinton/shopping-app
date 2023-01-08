@@ -3,8 +3,8 @@ import { createContext, useContext, useState } from "react";
 const cartContext = createContext();
 
 export const ProvideCart = ({ children }) => {
-  const auth = useProvideCart();
-  return <cartContext.Provider value={auth}>{children}</cartContext.Provider>;
+  const cart = useProvideCart();
+  return <cartContext.Provider value={cart}>{children}</cartContext.Provider>;
 };
 
 export const useCart = () => {
@@ -13,6 +13,8 @@ export const useCart = () => {
 
 const useProvideCart = () => {
   const [items, setItems] = useState([]);
+  const [isToastOpened, setIsToastOpened] = useState(false);
+  const [messageToast, setMessageToast] = useState(null);
 
   const handleAddItem = (item) => {
     const index = items.findIndex((x) => x.id === item.id);
@@ -27,6 +29,7 @@ const useProvideCart = () => {
     items.splice(isInCart ? index : items.length, 1, itemToAdd);
 
     setItems(items);
+    openToast(`O Item ${item.name} foi adicionado ao carrinho`);
   };
 
   const handleRemoveItem = (itemId) => {
@@ -45,5 +48,18 @@ const useProvideCart = () => {
     );
   };
 
-  return { items, handleAddItem, handleRemoveItem };
+  const openToast = (message) => {
+    setMessageToast(message);
+    setIsToastOpened(true);
+  };
+
+  return {
+    items,
+    handleAddItem,
+    handleRemoveItem,
+    isToastOpened,
+    setIsToastOpened,
+    messageToast,
+    openToast,
+  };
 };

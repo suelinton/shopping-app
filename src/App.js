@@ -1,4 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
+import { Toast } from "./components/Toast";
 import { ProvideCart } from "./hooks/useCart";
 import { Endpoints } from "./routes";
 
@@ -9,6 +10,7 @@ function App() {
         <BrowserRouter>
           <Endpoints />
         </BrowserRouter>
+        <Toast />
       </ProvideCart>
       <a
         className="App-link"

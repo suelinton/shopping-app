@@ -1,0 +1,48 @@
+.item {
+  position: relative;
+  height: 100%;
+  margin: 5px auto 20px auto;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+.thumbnail {
+  display: block;
+  position: relative;
+}
+
+.product-name {
+  color: #333;
+  font-size: 16px;
+  line-height: 18px;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+a {
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.prices {
+  margin: 5px 0;
+  min-height: 75px;
+}
+
+.price {
+  display: block;
+  color: #0033c6;
+  font-weight: 800;
+}
+
+.nm-price-label {
+  font-size: 14px;
+}
+
+.nm-price-value {
+  font-size: 24px;
+}
