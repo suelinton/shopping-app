@@ -1,9 +1,14 @@
 
 # Shopping App 
 
-Projeto destinado a Prova de conceito das técnicas de ReactJS.
+Projeto de prova de conceito das técnicas de ReactJS.
 
 O App possui duas páginas, a primeira de listagem de produtos e a segunda de carrinho.
+
+
+## Demo
+
+- [CodeSandBox.io](https://codesandbox.io/p/github/suelinton/shopping-app/csb-4o7hhd/draft/elegant-jerry?create=true&file=%2FREADME.md&selection=%5B%7B%22endColumn%22%3A10%2C%22endLineNumber%22%3A8%2C%22startColumn%22%3A10%2C%22startLineNumber%22%3A8%7D%5D)
 
 
 ## Features
@@ -18,6 +23,7 @@ O App possui duas páginas, a primeira de listagem de produtos e a segunda de ca
     - Carrinho com contador de items
     - Notificação de item adicionado ao carrinho
     - Obter Produtos via API (Não foi feito)
+    - Testes unitários (Não foi feito)
 
 - Tela de Carrinho
     -
@@ -28,7 +34,8 @@ O App possui duas páginas, a primeira de listagem de produtos e a segunda de ca
     - Exibição de carrinho vazio
     - Notificação de alteração do carrinho
     - Contador de quantidade de items
-
+    - Testes unitários (Não foi feito)
+    
 - Rotas
     -
     - Tela de Listagem de produtos
@@ -39,15 +46,15 @@ O App possui duas páginas, a primeira de listagem de produtos e a segunda de ca
 
 ## Tech Stack
 
-**Framework:** React
+**Node**: v16.13.0
+
+**NPM**: 8.1.0
+
+**Framework:** ReactJs
 
 **Toolchain:** Create-React-App
 
 **Component Library:** Material-UI
-## Demo
-
-Insert gif or link to demo
-
 
 ## Authors
 
@@ -58,3 +65,29 @@ Insert gif or link to demo
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/suelinton/shopping-app
+```
+
+Go to the project directory
+
+```bash
+  cd shopping-app
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
+```
