@@ -1,29 +1,25 @@
-import { Link } from "react-router-dom";
+import { Typography } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2";
+import { Link as RouterLink } from "react-router-dom";
 import { useCart } from "../../hooks/useCart";
+import { ShoppingCartList } from "./ShoppingCartList";
 
 export const ShoppingCart = (props) => {
   const cart = useCart();
 
   return (
     <>
-      <div>
-        <h3>Shopping Cart</h3>
-        <ul>
-          {cart.items.map((item) => (
-            <li key={item.id}>
-              {item.name} - ${item.price} - {item.quantity} -{" "}
-              {item.quantity * item.price}
-              <button onClick={() => cart.handleRemoveItem(item.id)}>
-                Remove
-              </button>
-            </li>
-          ))}
-        </ul>
-        <h3>
-          Total: ${cart.items.reduce((total, item) => total + item.price, 0)}
-        </h3>
-      </div>
-      <Link to="/">Continuar comprando</Link>
+      <Grid container justifyContent={"center"}>
+        {cart.items.length === 0 && (
+          <Typography variant="h5" gutterBottom>
+            O seu carrinho está vazio
+          </Typography>
+        )}
+        {cart.items.length > 0 && <ShoppingCartList />}
+        <Grid xs={12}>
+          <RouterLink to="/">Continuar comprando</RouterLink>
+        </Grid>
+      </Grid>
     </>
   );
 };

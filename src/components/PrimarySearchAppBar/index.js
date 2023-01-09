@@ -1,54 +1,22 @@
-import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { InputSearch } from "./InputSearch";
 import { CartIconButton } from "./CartIconButton";
+import { MobileMenu } from "./MobileMenu";
+import { useState } from "react";
 
 export const PrimarySearchAppBar = ({ filterText, handleFilterTextChange }) => {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
+  const mobileMenuId = "primary-search-account-menu-mobile";
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
-
-  const mobileMenuId = "primary-search-account-menu-mobile";
-
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
-      }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <CartIconButton />
-        <p>Carrinho</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -93,7 +61,11 @@ export const PrimarySearchAppBar = ({ filterText, handleFilterTextChange }) => {
           </Box>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
+      <MobileMenu
+        mobileMenuId={mobileMenuId}
+        mobileMoreAnchorEl={mobileMoreAnchorEl}
+        setMobileMoreAnchorEl={setMobileMoreAnchorEl}
+      />
     </Box>
   );
 };

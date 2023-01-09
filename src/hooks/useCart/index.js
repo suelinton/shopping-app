@@ -28,24 +28,22 @@ const useProvideCart = () => {
 
     items.splice(isInCart ? index : items.length, 1, itemToAdd);
 
-    setItems(items);
+    setItems([...items]);
     openToast(`O Item ${item.name} foi adicionado ao carrinho`);
   };
 
-  const handleRemoveItem = (itemId) => {
-    setItems(
-      items.map((item) => {
-        if (item.id !== itemId) return item;
+  const handleRemoveItem = (itemId, quantity = 1) => {
+    const newItens = items
+      .map((item) => {
+        if (item.id === itemId) item.quantity -= quantity;
 
-        if (item.quantity > 1) {
-          --item.quantity;
-
-          return item;
-        }
-
-        return false;
+        return item;
       })
-    );
+      .filter((x) => x.quantity > 0);
+
+    setItems([...newItens]);
+    const itemRemoved = items.find((item) => item.id === itemId);
+    openToast(`O Item ${itemRemoved?.name} foi removido ao carrinho`);
   };
 
   const openToast = (message) => {
