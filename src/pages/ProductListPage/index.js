@@ -1,5 +1,6 @@
+import Grid from "@mui/material/Unstable_Grid2";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { PrimarySearchAppBar } from "../../components/PrimarySearchAppBar";
 import { ProductList } from "../../components/ProductList";
 
 export const ProductListPage = () => {
@@ -13,7 +14,7 @@ export const ProductListPage = () => {
     setFilterText(filterValue);
 
     const filter = products.filter((product) => {
-      return product.name.toLowerCase().includes(filterText.toLowerCase());
+      return product.name.toLowerCase().includes(filterValue.toLowerCase());
     });
 
     setFilteredProducts(filter);
@@ -64,30 +65,39 @@ export const ProductListPage = () => {
 
   return (
     <>
-      <div>
-        <h3>Lista de produtos</h3>
-        <div>
-          <label>
-            Filter by Name:
-            <input
-              type="text"
-              value={filterText}
-              onChange={handleFilterTextChange}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Sort By:
-            <select value={sortBy} onChange={handleSortByChange}>
-              <option value="name">Name</option>
-              <option value="price">Price</option>
-            </select>
-          </label>
-        </div>
-      </div>
-      <ProductList products={filteredProducts} />
-      <Link to="cart">Carrinho</Link>
+      <PrimarySearchAppBar
+        filterText={filterText}
+        handleFilterTextChange={handleFilterTextChange}
+        key="PrimarySearchAppBar"
+      />
+      <Grid
+        container
+        columns={{ xs: 4, sm: 8, md: 10 }}
+        sx={{ pt: 0, pl: 10, pr: 10, pb: 10 }}
+        rowSpacing={2}
+      >
+        <Grid xs={12}>
+          <div>
+            <h3>
+              {filterText.length
+                ? `Exibindo resultado para: ${filterText}`
+                : "Todos os produtos"}
+            </h3>
+            <div>
+              <label>
+                Ordenar:
+                <select value={sortBy} onChange={handleSortByChange}>
+                  <option value="name">Nome</option>
+                  <option value="price">Valor</option>
+                </select>
+              </label>
+            </div>
+          </div>
+        </Grid>
+        <Grid xs={12}>
+          <ProductList products={filteredProducts} />
+        </Grid>
+      </Grid>
     </>
   );
 };

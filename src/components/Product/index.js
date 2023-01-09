@@ -19,7 +19,7 @@ export const Product = ({ product }) => {
       <ButtonShowMedia
         image={{
           url: "https://picsum.photos/200",
-          title: product.name,
+          title: name,
           width: "100%",
         }}
       />
@@ -27,9 +27,20 @@ export const Product = ({ product }) => {
         <Typography variant="body2" color="text.secondary">
           {name}
         </Typography>
-        <Typography marginTop={2} gutterBottom variant="h5" component="div">
-          <Typography variant="body2" color="text.secondary">
-            Por
+        <Typography
+          marginTop={2}
+          gutterBottom
+          variant="h5"
+          component="div"
+          className="price"
+        >
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            component="span"
+            mr={1}
+          >
+            Por:
           </Typography>
           ${price}
         </Typography>
