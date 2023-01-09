@@ -23,6 +23,7 @@ O App possui duas páginas, a primeira de listagem de produtos e a segunda de ca
     - Carrinho com contador de items
     - Notificação de item adicionado ao carrinho
     - Obter Produtos via API (Não foi feito)
+    - Paginação (Não foi feito)
     - Testes unitários (Não foi feito)
 
 - Tela de Carrinho
@@ -34,6 +35,7 @@ O App possui duas páginas, a primeira de listagem de produtos e a segunda de ca
     - Exibição de carrinho vazio
     - Notificação de alteração do carrinho
     - Contador de quantidade de items
+    - Paginação (Não foi feito)
     - Testes unitários (Não foi feito)
     
 - Rotas
